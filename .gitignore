@@ -1,6 +1,6 @@
 
 # Mac files
-.DS_store
+.DS_Store
 
 #dependencies
 /node_modules
