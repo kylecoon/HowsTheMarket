@@ -1,0 +1,9 @@
+
+# Mac files
+.DS_store
+
+#dependencies
+/node_modules
+
+#virtual environment
+/venv

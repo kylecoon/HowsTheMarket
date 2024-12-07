@@ -200,7 +200,6 @@ const App = () => {
     // Generate the labels array
     let labels = [];
     for (let i = 0; i < Object.keys(data).length; i++) {
-      // Calculate the index for each day to shift right to left
       const labelIndex = (currentDay - Object.keys(data).length + 7 + i) % 7;
       labels.push(daysOfWeek[labelIndex]);
     }
@@ -220,7 +219,6 @@ const App = () => {
     
     let labels = [];
     for (let i = 0; i < Object.keys(data).length; i++) {
-      // Calculate the index for each day to shift right to left
       const labelIndex = (currentDay - Object.keys(data).length + 13 + i) % 12;
       labels.push(months[labelIndex]);
     }
@@ -239,8 +237,8 @@ const App = () => {
             return 'rgba(0, 128, 0, 0.85)';
           }
           // Compare current job_count with the previous one
-          const previousJobCount = array[index - 1].job_count; // Get the previous job_count
-          return entry.job_count < previousJobCount ? 'rgba(178, 34, 34, 0.85)' : 'rgba(0, 128, 0, 0.85)';  // Red if lower, green if higher
+          const previousJobCount = array[index - 1].job_count;
+          return entry.job_count < previousJobCount ? 'rgba(178, 34, 34, 0.85)' : 'rgba(0, 128, 0, 0.85)';
         }),
         borderColor: '#333',
         borderWidth: 1,
@@ -288,8 +286,8 @@ const App = () => {
           if (index === 0) {
             return 'rgb(0, 128, 0)'; 
           }
-          const previousSalary = array[index - 1].avg_salary; // Get the previous job_count
-          return entry.avg_salary < previousSalary ? 'rgb(178, 34, 34)' : 'rgb(0, 128, 0)';  // Red if lower, green if higher
+          const previousSalary = array[index - 1].avg_salary; 
+          return entry.avg_salary < previousSalary ? 'rgb(178, 34, 34)' : 'rgb(0, 128, 0)'; 
         }),
         borderColor: '#333',  
         pointBorderColor: '#333',

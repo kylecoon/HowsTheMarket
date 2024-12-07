@@ -117,8 +117,8 @@ const processCsv = async (filePath, index) => {
                 }
 
             })
-            .on('end', resolve) // When the CSV is fully processed
-            .on('error', reject); // Handle any errors
+            .on('end', resolve)
+            .on('error', reject);
         });
 
         const avg_salary = (salary_sum / salary_count).toFixed(1);
