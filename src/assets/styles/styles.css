@@ -1,0 +1,463 @@
+body, h1, p, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif; /* Ensure same font across all elements */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 3vw;
+  color: #333;
+  align-items: center;
+  text-align: center;
+  padding-top: 30vh;
+}
+
+:root {
+  --primary-color: green;
+}
+
+.dropdown-container {
+  text-align: center;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 21vw;
+  border-bottom: 2px solid var(--primary-color);
+  padding: 8px 10px;
+  font-size: 1vw;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.custom-dropdown-selected {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);;
+  position: relative; /* To position the selected text correctly */
+  top: 0.5vw; /* Fine-tune this value to position the text over the underline */
+}
+
+.arrow-down {
+  font-size: 3vw;
+  color: var(--primary-color);;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.arrow-down.rotate-right {
+  transform: rotate(-90deg); /* Default: arrow pointing to the right */
+}
+
+.arrow-down.rotate-down {
+  transform: rotate(0deg); /* Dropdown open: arrow pointing down */
+}
+
+.custom-dropdown-selected-text {
+  font-size: 2.4vw;
+  position: absolute; 
+  top: 0.5vw;
+  transform: translateY(0);
+  opacity: 1;
+  left: 2vw;
+  right: 0;
+  text-align: center;
+  transition: none;
+}
+
+@keyframes fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-dropdown .custom-dropdown-selected-text.animate {
+  animation: fade-slide 0.3s ease;
+}
+
+.custom-dropdown-options {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 10;
+  font-size: 1rem;
+
+  max-height: 0; /* Collapsed state */
+  opacity: 0; /* Invisible */
+  overflow: hidden; /* Hide content outside bounds */
+  transform: translateY(-10px); /* Start slightly above the green underline */
+  transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.custom-dropdown-options.open {
+  max-height: 500px; /* Expanded state */
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Slide down into place */
+}
+
+.custom-dropdown-option {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+}
+
+.custom-dropdown-option:hover {
+  background-color: #f0f0f0;
+  color: var(--primary-color);;
+}
+
+.question-mark {
+  font-size: 3.5vw;
+  color: #333;
+  font-family: Arial, sans-serif; 
+  font-weight: bold; 
+  line-height: 1;
+  vertical-align: middle; 
+  margin-left: 10px;
+}
+
+.data-container {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.chart-container {
+  width: 40vw;  
+  height: 20vw;  
+  margin: 0 auto;  
+  padding-top: 2vw;
+  padding-bottom: 10vw;
+  justify-items: center;
+}
+
+.chart-container h1 {
+  font-size: 2.4vw;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #333;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.chart-container p {
+  text-align: center;
+  color:#595959;
+  font-size: 0.7vw;
+}
+
+.chart-container.doughnut {
+  height: 25vw;
+  padding-bottom: 8vw;
+}
+
+#doughnut {
+  position: relative;
+}
+
+.chart-container.country-chart {
+  width: 50vw;
+  height: 30vw;
+  padding-bottom: 5vw;
+}
+
+#countryChart {
+  width: 100%;
+  height: 100%; 
+}
+
+.stat {
+  padding-top: 5vw;
+  font-size: 3vw;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-text, .stat-percent, .stat-timeframe {
+  display: inline;
+}
+
+.stat-percent.positive{
+  color: green;
+}
+
+.stat-percent.negative{
+  color: firebrick;
+}
+
+.wip {
+  padding-top: 5vw;
+}
+
+.wip h1 {
+  padding-top: 2vw;
+}
+
+.wip p {
+  padding-top: 2vw;
+  text-align: center;
+
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.section.b {
+  background-color: #eaeaea;
+  width: 100vw;
+}
+
+.chart-container.table {
+  height: 13vw;
+}
+
+#office-table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  width: 50vw;
+}
+
+#office-table th, #office-table td {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+#office-table th {
+  background-color: #eaeaea;
+  font-weight: bold;
+  font-size: 2.4vw;
+}
+
+#office-table td {
+  font-size: 2.4vw;
+}
+
+.row-0 {
+  color: green;
+}
+
+.row-2 {
+  color: firebrick;
+}
+
+.methodology-toggle {
+  cursor: pointer;
+}
+
+.methodology-toggle:hover {
+  text-decoration: underline;
+}
+
+.methodology-toggle h1 {
+  padding-top: 0vw;
+  padding: 2vw;
+}
+
+.methodology-toggle .arrow-down {
+  color: #333;
+}
+
+.methodology-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  width: 45vw;
+  margin: 0 auto;
+  display: block;
+  font-size: 15px;
+  justify-self: center;
+  text-align: center;
+  font-style: italic;
+}
+
+.methodology-panel.open {
+  display: block;
+  width: 45vw;
+  max-height: 500px;
+  transition: max-height 0.3s ease-in;
+  padding-bottom: 2vw;
+}
+
+.methodology-panel.closed {
+  display: none;
+  max-height: 0;
+}
+
+.methodology-panel ul {
+  list-style-position: inside; 
+  padding: 0; 
+  margin: 0 auto; 
+  display: inline-block;
+  text-align: left;
+}
+
+.copyright {
+  font-size: 15px;
+  text-align: center;
+  padding: 15px;
+  color: #b2b2b2;
+}
+
+
+@media (max-width: 767px) {
+  h1 {
+      font-size: 8vw;
+      padding-top: 40vh;
+  }
+
+  .question-mark {
+      position: absolute;
+      font-size: 10vw;
+      padding-top: 3vw;
+  }
+
+  .custom-dropdown {
+    width: 55vw;
+    padding-top: 3vw;
+  }
+
+  .custom-dropdown-selected-text {
+    font-size: 8vw;
+    top: 0vw;
+    left: 4vw;
+  }
+
+  .custom-dropdown-options {
+    font-size: 5vw;
+  }
+
+  .arrow-down {
+    font-size: 8vw;
+  }
+
+  .chart-container {
+    padding-top: 5vw;
+    width: 80vw;  
+    margin: 0 auto;  
+    padding-bottom: 20vw;
+    min-height: 30vh;
+  }
+
+  .chart-container#postings {
+    padding-bottom: 29vw;
+  }
+
+  .chart-container h1 {
+    font-size: 5vw;
+  }
+
+
+  .stat {
+    padding-top: 10vw;
+    font-size: 8vw;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .stat-text, .stat-percent, .stat-timeframe {
+    display: block;
+    text-align: center;
+  }
+
+  .chart-container.doughnut{
+    position: relative;
+    height: 80vw;
+    width: 100%;
+    padding-bottom: 25vw;
+  }
+  
+  #doughnut {
+    top: 0vw;
+    left: 0vw;
+    width: 100%;
+    height: 30vw;
+    left: 10vw;
+  }
+
+  .chart-container.country-chart {
+    position: relative;
+    padding-bottom: 5vw;
+    right: 3vw;
+    width: 100vw;
+    height: 30vh;
+  }
+
+  .chart-container.table {
+    padding-bottom: 0vw;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  #office-table {
+    position: relative;
+    width: 90vw;
+    left: 5vw;
+  }
+  
+  #office-table th {
+    font-size: 4vw;
+  }
+  
+  #office-table td {
+    font-size: 4vw;
+  }
+
+  .methodology-panel.open {
+    width: 95vw;
+    font-size: 12px;
+  }
+  
+  .copyright {
+    font-size: 15px;
+    text-align: center;
+    padding: 15px;
+    color: #b2b2b2;
+  }
+
+  .chart-container p {
+    font-size: 3vw;
+  }
+
+}
