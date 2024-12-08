@@ -20,20 +20,6 @@ driver = webdriver.Chrome(service = s)
 
 driver.implicitly_wait(1.5)
 
-# Navigate to LinkedIn login page
-driver.get("https://www.linkedin.com/login")
-
-# Find and fill the email (username) and password fields
-# email = driver.find_element(By.ID, "username")
-# email.send_keys("kylejcoon@gmail.com")
-
-# password = driver.find_element(By.ID, "password")
-# password.send_keys("Kylec1213") 
-# password.send_keys(Keys.RETURN)
-
-# Wait for login to complete
-time.sleep(15)
-
 #Navigate to job search page
 driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3932350478&f_E=1%2C2%2C3&f_JT=F%2CP%2CC%2CI%2CO&f_TPR=r86400&f_VJ=true&keywords=software%20engineer&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true&sortBy=R&spellCorrectionEnabled=true")
 
