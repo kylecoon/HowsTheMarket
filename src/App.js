@@ -434,7 +434,7 @@ const App = () => {
                 <span className={`stat-percent ${percentageChange < 0 ? 'negative' : 'positive'}`}> {postingsUpOrDown} {Math.abs(percentageChange)}% </span>
                 <span className="stat-timeframe">{selectedOption}</span>
               </div>
-              <div className="chart-container" id={`${selectedOption == "This Week" ? "postings" : ""}`}>
+              <div className="chart-container" id={`${selectedOption == "This Month" ? "postings" : ""}`}>
                 <h1>New Job Postings</h1>
                 <Bar data={postingsGraphData} options={postingsGraphOptions} />
                 {selectedOption == "This Month" && (
