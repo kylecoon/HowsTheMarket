@@ -426,7 +426,7 @@ const App = () => {
       </div>
 
       <div className={`data-container ${fadeIn ? 'fade-in' : 'fade-out'}`}>
-        {selectedOption && !loading && Object.keys(data).length > 0 && selectedOption != "This Month" && (
+        {selectedOption && !loading && Object.keys(data).length > 0 && (
           <div> 
             <div className="section a">
               <div className="stat">
@@ -437,7 +437,7 @@ const App = () => {
               <div className="chart-container" id={`${selectedOption == "This Week" ? "postings" : ""}`}>
                 <h1>New Job Postings</h1>
                 <Bar data={postingsGraphData} options={postingsGraphOptions} />
-                {selectedOption == "This Week" && (
+                {selectedOption == "This Month" && (
                   <div>
                     <p><br></br></p>
                     <p>Data collection began Nov. 21, 2024</p>
@@ -510,7 +510,7 @@ const App = () => {
                 <h1><span className={`arrow-down ${methodologyIsOpen ? 'rotate-down' : 'rotate-right'}`}>&#9662;</span> Methodology</h1>
               </div>
               <div className={`methodology-panel ${methodologyIsOpen ? 'open' : 'closed'}`}>
-                  <p><br></br>New job postings are collected daily at 12am from LinkedIn with the following search criteria:</p>
+                  <p><br></br>New job postings are collected daily at 12am EST from LinkedIn with the following search criteria:</p>
                   <br></br>
                   <ul>
                     <li><b>Search: </b>"software"</li>
@@ -532,13 +532,6 @@ const App = () => {
                 <p>kylejcoon@gmail.com</p>
               </div>
             </div>
-          </div>
-        )}
-        {selectedOption == "This Month" && (
-          <div className="wip">
-            <h1>Available Dec. 19</h1>
-            <h1>More Data Required</h1>
-            <p>Data collection began Nov. 21, 2024</p>
           </div>
         )}
       </div>
